@@ -13,4 +13,6 @@ urlpatterns = patterns('',
 
 
     url(r'^$', 'giraffe.views.index'),
+    url(r'^newpassword/$', 'giraffe.views.newpassword_view'),
+    url(r'^pass/(?P<pass_hash>\w+)/$', 'giraffe.views.pass_view'),
 )
