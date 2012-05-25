@@ -16,6 +16,7 @@ def index(request):
 
 def newpassword_view(request):
     newpass = request.POST['password']
+    duration = int(request.POST['duration'])
 
     # add this new password to the database, and stuff
     g = Giraffeword()
@@ -23,6 +24,7 @@ def newpassword_view(request):
     g.password = newpass
     g.added_date = timezone.now()
     g.url = sha1(newpass + str(g.added_date)).hexdigest()
+    g.duration = duration
     g.save()
 
     return render_to_response('newpassword.html',
