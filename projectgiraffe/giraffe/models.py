@@ -23,10 +23,14 @@ class IPLog(models.Model):
 
     ip = models.CharField(max_length=20)
     added_date = models.DateTimeField('date logged')
+    expired = models.BooleanField()
 
+    def __unicode__(self):
+        return "{}, {}, Expired: {}".format(
+            self.added_date.strftime("%c"), self.ip, self.expired)
 
-class GiraffewordForm(ModelForm):
-    class Meta:
-        model = Giraffeword
-        exclude = ('url', 'added_date')
+#class GiraffewordForm(ModelForm):
+#    class Meta:
+#        model = Giraffeword
+#        exclude = ('url', 'added_date')
 
