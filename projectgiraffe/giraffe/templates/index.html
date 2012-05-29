@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{% if error_message %}<p class="errorlist">{{ error_message }}</p>{% endif %}
+
 <form action="/newpassword/" method="post">
     {% csrf_token %}
     <table>

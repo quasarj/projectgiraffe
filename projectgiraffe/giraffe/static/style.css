@@ -1,0 +1,9 @@
+.passwordbox {
+    width: 500px;
+
+}
+
+.errorlist {
+    color: red;
+    font-weight: bold;
+}
