@@ -48,12 +48,14 @@ def newpassword_view(request):
 
     expire_time = timezone.now() + datetime.timedelta(minutes=g.duration)
 
-    return render_to_response('newpassword.html',
-                              {'giraffe': g,
-                               'newpass': newpass,
-                               'secret' : secret,
-                               'expire' : expire_time, 
-                              })
+    return render_to_response(
+		'newpassword.html',
+		{	'giraffe': g,
+			'newpass': newpass,
+			'secret' : secret,
+			'expire' : expire_time, 
+		},
+		context_instance=RequestContext(request))
 
 
 def pass_view(request, pass_hash):
